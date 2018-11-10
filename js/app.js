@@ -141,7 +141,6 @@ function setEnemies(yaxis, sp){
 }
 
 // Place all enemy objects in an array called allEnemies
-console.log(allEnemies);
 
 // Place the player object in a variable called player
 
@@ -156,6 +155,6 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-console.log(allowedKeys[e.keyCode]);
+
     player.handleInput(allowedKeys[e.keyCode]);
 });
