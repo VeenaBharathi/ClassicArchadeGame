@@ -94,15 +94,21 @@ Player.prototype.handleInput = function(code){
 
         case "left": 
             this.x-=100;
+              if(this.x <= 0)
+                this.x = 0;
             break;
         case "up": 
             this.y-=60;
             break;
         case "right": 
             this.x+=100;
+              if(this.x >= 400)
+                this.x = 400;
             break;
         case "down": 
             this.y+=60;
+             if(this.y >= 400)
+                this.y = 400;
             break;
        
     }
