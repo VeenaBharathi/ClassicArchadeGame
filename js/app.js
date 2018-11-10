@@ -70,11 +70,11 @@ Player.prototype.render = function() {
 
     let currX = this.x;
     let currY = this.y;
-    console.log(currX + " " + currY);
+    // console.log(currX + " " + currY);
     allEnemies.forEach(function(enemy){
     // console.log("enemy " + enemy.x + " " + enemy.y );
-    console.log(enemy.x + "=" + (currX+40) + " or " + enemy.x + "=" + (currX-40)  + 
-    " and " + enemy.y +"=" + (currY+40) + " or " + enemy.y + "=" + (currY-40) + ".");
+    // console.log(enemy.x + "=" + (currX+40) + " or " + enemy.x + "=" + (currX-40)  + 
+    // " and " + enemy.y +"=" + (currY+40) + " or " + enemy.y + "=" + (currY-40) + ".");
     
     if((enemy.x <= (currX+40) && enemy.x >= (currX-40)) && (enemy.y <= (currY+40) && enemy.y >= (currY-40)))
        {
@@ -123,8 +123,8 @@ Player.prototype.handleInput = function(code){
 var pre_y = [0], y1 = 0, flag ;
 
 function setYAxis(){
-   y1 = Math.round((Math.random() * (420 - 60)) + 60);
-
+   y1 = Math.round((Math.random() * (300 - 60)) + 60);
+  console.log(pre_y);
     pre_y.forEach(function(pre){
     if( Math.abs(y1 - pre) < 50){
      
