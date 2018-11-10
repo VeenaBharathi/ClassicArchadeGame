@@ -78,12 +78,13 @@ Player.prototype.render = function() {
     
     if((enemy.x <= (currX+40) && enemy.x >= (currX-40)) && (enemy.y <= (currY+40) && enemy.y >= (currY-40)))
        {
-           alert("Collided. Game Over. You lost!!");
-            if(confirm){
-                window.location.reload();
-            }
+           currX = 200;
+           currY = 400;
         }
     });
+
+    this.x = currX;
+    this.y = currY;
 };
 
 Player.prototype.handleInput = function(code){
