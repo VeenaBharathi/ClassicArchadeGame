@@ -24,7 +24,10 @@ Enemy.prototype.update = function(dt) {
     
     if(this.x>550){
         this.x = -100;
-        this.speed = setSpeed();
+        let index = allEnemies.indexOf(this);
+        allEnemies.splice(index,1);
+        pre_y = [0], y1 = 0, 
+        setEnemies(setYAxis(), setSpeed());     
     }
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -97,6 +100,7 @@ var pre_y = [0], y1 = 0, flag ;
 
 function setYAxis(){
    y1 = (Math.random() * (420 - 60)) + 60;
+
     pre_y.forEach(function(pre){
     if( Math.abs(y1 - pre) < 50){
      
@@ -116,18 +120,25 @@ function setSpeed(){
 }
 
 
-for(var i = 1; i<5; i++){
+
+for(var i = 0; i<4; i++){
     flag = false;
-    let yaxis = setYAxis();
-    let sp = setSpeed();
+    var yaxis = setYAxis();
+    var sp = setSpeed();
     if(yaxis != null){
-        var enemy = new Enemy(90,yaxis,sp);
-        allEnemies.push(enemy);}
+            setEnemies.call(this, yaxis, sp);
+    }
     else{
         i = i-1;
     }
 }
-   
+
+ 
+ 
+function setEnemies(yaxis, sp){
+        var enemy = new Enemy(-100,yaxis,sp);
+        allEnemies.push(enemy);
+}
 
 // Place all enemy objects in an array called allEnemies
 console.log(allEnemies);
