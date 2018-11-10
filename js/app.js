@@ -88,6 +88,13 @@ Player.prototype.handleInput = function(code){
             break;
        
     }
+
+    if(this.y ===  -20){
+        setTimeout(alert("game over!!! you won!!"), 1000);
+        if(confirm){
+            window.location.reload(true);
+        }
+    }
 };
 
 
