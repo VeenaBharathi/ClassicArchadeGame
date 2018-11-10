@@ -124,7 +124,7 @@ var pre_y = [0], y1 = 0, flag ;
 
 function setYAxis(){
    y1 = Math.round((Math.random() * (300 - 60)) + 60);
-  console.log(pre_y);
+
     pre_y.forEach(function(pre){
     if( Math.abs(y1 - pre) < 50){
      
@@ -140,7 +140,7 @@ function setYAxis(){
 }
 
 function setSpeed(){
-    return (Math.random()*(200 - 60)) + 60;
+    return (Math.random()*(400 - 60)) + 60;
 }
 
 
