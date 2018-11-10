@@ -67,6 +67,23 @@ Player.prototype.render = function() {
   else if(this.y > 400){
     this.y = 400;
  }
+
+    let currX = this.x;
+    let currY = this.y;
+    console.log(currX + " " + currY);
+    allEnemies.forEach(function(enemy){
+    // console.log("enemy " + enemy.x + " " + enemy.y );
+    console.log(enemy.x + "=" + (currX+40) + " or " + enemy.x + "=" + (currX-40)  + 
+    " and " + enemy.y +"=" + (currY+40) + " or " + enemy.y + "=" + (currY-40) + ".");
+    
+    if((enemy.x <= (currX+40) && enemy.x >= (currX-40)) && (enemy.y <= (currY+40) && enemy.y >= (currY-40)))
+       {
+           alert("Collided. Game Over. You lost!!");
+            if(confirm){
+                window.location.reload();
+            }
+        }
+    });
 };
 
 Player.prototype.handleInput = function(code){
@@ -89,21 +106,11 @@ Player.prototype.handleInput = function(code){
        
     }
 
-    let currX = this.x;
-    let currY = this.y;
-    console.log(currX + " " + currY);
-    allEnemies.forEach(function(enemy){
-        console.log("enemy " + enemy.x + " " + enemy.y )
-        if(this.x === currX && this.y === currY)
-            window.location.reload();
-    });
-
+    
     if(this.y ===  -20){
-        setTimeout(alert("game over!!! you won!!"), 1000);
-        if(confirm){
-            window.location.reload(true);
-        }
+       gameOver();
     }
+
 };
 
 
@@ -174,3 +181,13 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
+
+
+function gameOver(){
+         setTimeout(alert("game over!!! you won!!"), 1000);
+        if(confirm){
+            window.location.reload(true);
+        }
+}
