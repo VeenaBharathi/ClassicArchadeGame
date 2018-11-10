@@ -20,7 +20,7 @@ var Enemy = function(x, y, speed) {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
-    this.x += (this.speed)*dt;
+    this.x += Math.round((this.speed)*dt);
     
     if(this.x>550){
         this.x = -100;
@@ -89,6 +89,15 @@ Player.prototype.handleInput = function(code){
        
     }
 
+    let currX = this.x;
+    let currY = this.y;
+    console.log(currX + " " + currY);
+    allEnemies.forEach(function(enemy){
+        console.log("enemy " + enemy.x + " " + enemy.y )
+        if(this.x === currX && this.y === currY)
+            window.location.reload();
+    });
+
     if(this.y ===  -20){
         setTimeout(alert("game over!!! you won!!"), 1000);
         if(confirm){
@@ -106,7 +115,7 @@ Player.prototype.handleInput = function(code){
 var pre_y = [0], y1 = 0, flag ;
 
 function setYAxis(){
-   y1 = (Math.random() * (420 - 60)) + 60;
+   y1 = Math.round((Math.random() * (420 - 60)) + 60);
 
     pre_y.forEach(function(pre){
     if( Math.abs(y1 - pre) < 50){
